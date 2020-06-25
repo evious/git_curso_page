@@ -9,8 +9,21 @@
   <div id="app">
     <v-app>
       <v-main>
-        <v-container>
-            <v-card class="d-inline-block mx-auto">
+
+        <v-container class="grey lighten-5">
+          <v-row no-gutters>
+            <v-col
+              v-for="n in 3"
+              :key="n"
+              cols="12"
+              sm="4"
+            >
+              <v-card
+                class="pa-2"
+                outlined
+                tile
+              >
+              <v-card class="d-inline-block mx-auto">
                 <v-container>
                   <v-row justify="space-between">
                     <v-col cols="auto">
@@ -51,7 +64,47 @@
                   </v-row>
                 </v-container>
               </v-card>
+              </v-card>
+            </v-col>
+          </v-row>
+
+          <v-card height="400px">
+            <v-footer
+              v-bind="localAttrs"
+              :padless="padless"
+            >
+              <v-card
+                flat
+                tile
+                width="100%"
+                class="red lighten-1 text-center"
+              >
+                <v-card-text>
+                  <v-btn
+                    v-for="icon in icons"
+                    :key="icon"
+                    class="mx-4"
+                    icon
+                  >
+                    <v-icon size="24px">{{ icon }}</v-icon>
+                  </v-btn>
+                </v-card-text>
+        
+                <v-divider></v-divider>
+        
+                <v-card-text class="white--text">
+                  {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+                </v-card-text>
+              </v-card>
+            </v-footer>
+        
+           
+          </v-card>
+
         </v-container>
+
+
+     
       </v-main>
     </v-app>
   </div>
@@ -62,6 +115,34 @@
     new Vue({
       el: '#app',
       vuetify: new Vuetify(),
+      data: () => ({
+      icons: [
+        'mdi-home',
+        'mdi-email',
+        'mdi-calendar',
+        'mdi-delete',
+      ],
+      items: [
+        'default',
+        'absolute',
+        'fixed',
+      ],
+      padless: false,
+      variant: 'absolute',
+    }),
+    computed: {
+      localAttrs () {
+        const attrs = {}
+
+        if (this.variant === 'default') {
+          attrs.absolute = false
+          attrs.fixed = false
+        } else {
+          attrs[this.variant] = true
+        }
+        return attrs
+      },
+    }
     })
 
 
