@@ -1,0 +1,10 @@
+* git tiene 3 arboles
+    - directorio de trabajo: donde estan alojados los archivos principales
+
+    - index zona intermedia: el index area es donde se agregan los archivos de git los 
+      cuales no seran monitoreados si no son agregados.
+
+    - git area donde se alberga el ultimo commit de nuestro proyecto
+
+
+    
