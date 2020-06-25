@@ -30,6 +30,14 @@
 {
     'quitar un archivo del index area',
     'git rm --cache filename'
+},
+{
+    'realizar comentarios',
+    'git commit -m "mensaje de guardado"'
+},
+{
+    'revisar los commit realizados',
+    'git log'
 }
 
 ]
